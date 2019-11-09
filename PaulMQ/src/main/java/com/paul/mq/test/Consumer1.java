@@ -2,6 +2,7 @@ package com.paul.mq.test;
 
 import com.paul.mq.consumer.PaulMQConsumer;
 import com.paul.mq.consumer.ReceiveMessageCallBack;
+import com.paul.mq.entity.Exchange;
 import com.paul.mq.entity.Message;
 
 public class Consumer1 {
@@ -13,7 +14,10 @@ public class Consumer1 {
 	};
 	
 	public static void main(String[] args){
-		PaulMQConsumer consumer = new PaulMQConsumer("0.0.0.0",8092,"MQCluster","Topic-1",callBack);
+		Exchange exchange = new Exchange();
+		exchange.setName("Exchanger");
+		exchange.setRegrex(".*update.*");
+		PaulMQConsumer consumer = new PaulMQConsumer("0.0.0.0",8092,"",exchange,callBack);
 		consumer.init();
 		consumer.start();
 	}

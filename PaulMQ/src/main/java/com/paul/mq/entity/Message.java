@@ -7,7 +7,9 @@ import java.io.Serializable;
 public class Message extends AbstractMessage implements Serializable{
 	
     private String msgId;
-    private String topic;
+    private String queue;
+    private Exchange exchange;
+    private WorkMode mode;
     private byte[] body;
     private long timeStamp;
     
@@ -17,11 +19,18 @@ public class Message extends AbstractMessage implements Serializable{
 	public void setMsgId(String msgId) {
 		this.msgId = msgId;
 	}
-	public String getTopic() {
-		return topic;
+	public String getQueue() {
+		return queue;
 	}
-	public void setTopic(String topic) {
-		this.topic = topic;
+	public void setQueue(String queue) {
+		this.queue = queue;
+	}
+	
+	public Exchange getExchange() {
+		return exchange;
+	}
+	public void setExchange(Exchange exchange) {
+		this.exchange = exchange;
 	}
 	public byte[] getBody() {
 		return body;
@@ -34,6 +43,12 @@ public class Message extends AbstractMessage implements Serializable{
 	}
 	public void setTimeStamp(long timeStamp) {
 		this.timeStamp = timeStamp;
+	}
+	public WorkMode getMode() {
+		return mode;
+	}
+	public void setMode(WorkMode mode) {
+		this.mode = mode;
 	}
     
     

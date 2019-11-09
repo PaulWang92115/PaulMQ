@@ -52,7 +52,7 @@ public class ConsumerNettyHandler extends NettyHandler<Object>{
 			}
 		}else{
 			//condition1
-			System.out.println("consumer subscribe successful");
+			System.out.println("consumer register successful");
 		}
 	}
 

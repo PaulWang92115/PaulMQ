@@ -2,20 +2,15 @@ package com.paul.mq.entity;
 
 public class MessageDispatchTask {
 
-	private String clusters;
-	private String topic;
+	private String consumerId;
 	private Message message;
-	public String getClusters() {
-		return clusters;
+
+	
+	public String getConsumerId() {
+		return consumerId;
 	}
-	public void setClusters(String clusters) {
-		this.clusters = clusters;
-	}
-	public String getTopic() {
-		return topic;
-	}
-	public void setTopic(String topic) {
-		this.topic = topic;
+	public void setConsumerId(String consumerId) {
+		this.consumerId = consumerId;
 	}
 	public Message getMessage() {
 		return message;

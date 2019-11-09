@@ -41,11 +41,11 @@ public class BrokerProcessorContext {
 				//收到 message 类型得消息后对应得 processor
 				processor = request.getSourceType() == SourceType.PRODUCER ? new ProducerMessageProcessor():new ConsumerMessageProcessor();
 				break;
-			case SUBSCRIBE:
-				processor = new SubscribeMessageProcessor();
+			case REGISTER:
+				processor = new RegisterMessageProcessor();
 				break;
-			case UNSUBSCRIBE:
-				processor = new UnSubscribeMessageProcessor();
+			case UNREGISTER:
+				processor = new UnRegisterMessageProcessor();
 				break;
 			default:
 				break;

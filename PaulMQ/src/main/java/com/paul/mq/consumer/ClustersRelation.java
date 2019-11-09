@@ -2,7 +2,7 @@ package com.paul.mq.consumer;
 
 public class ClustersRelation {
 	
-	private String clusterId;
+	private String exchangeName;
 	
 	private ConsumerClusters clusters;
 	
@@ -10,18 +10,20 @@ public class ClustersRelation {
 
     }
 
-	public ClustersRelation(String clusterId, ConsumerClusters clusters) {
+	public ClustersRelation(String exchangeName, ConsumerClusters clusters) {
 		super();
-		this.clusterId = clusterId;
+		this.exchangeName = exchangeName;
 		this.clusters = clusters;
 	}
 
-	public String getClusterId() {
-		return clusterId;
+	
+
+	public String getExchangeName() {
+		return exchangeName;
 	}
 
-	public void setClusterId(String clusterId) {
-		this.clusterId = clusterId;
+	public void setExchangeName(String exchangeName) {
+		this.exchangeName = exchangeName;
 	}
 
 	public ConsumerClusters getClusters() {

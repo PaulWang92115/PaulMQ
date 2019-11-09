@@ -5,7 +5,6 @@ import io.netty.channel.Channel;
 public class ChannelData {
 	private Channel channel;
 	private String clientId;
-	private String topic;
 	
     public ChannelData(Channel channel, String clientId) {
         this.channel = channel;
@@ -25,16 +24,4 @@ public class ChannelData {
 	public void setClientId(String clientId) {
 		this.clientId = clientId;
 	}
-
-
-	public String getTopic() {
-		return topic;
-	}
-
-
-	public void setTopic(String topic) {
-		this.topic = topic;
-	}
-	
-	
 }

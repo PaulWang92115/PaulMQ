@@ -1,8 +1,8 @@
 package com.paul.mq.broker;
 
-import com.paul.mq.consumer.ConsumerClustersContext;
+import com.paul.mq.consumer.ConsumerContext;
 import com.paul.mq.entity.ChannelData;
-import com.paul.mq.entity.SubMessage;
+import com.paul.mq.entity.RegisterMessage;
 
 /**
  * 
@@ -12,12 +12,17 @@ import com.paul.mq.entity.SubMessage;
  */
 public class ConsumerMessageListenerImpl implements ConsumerMessageListener{
 
-	public void processConsumerMessage(SubMessage msg, ChannelData channel) {
-		System.out.println("receive sub message from consumer, groupId:" + msg.getClusterId() + " topoc:" + msg.getTopic()
+	public void processConsumerMessage(RegisterMessage msg, ChannelData channel) {
+		System.out.println("receive sub message from consumer, exchange:" + msg.getExchange() + " queue:" + msg.getQueue()
 				+ " clientId:" + channel.getClientId());
-		channel.setTopic(msg.getTopic());
-		//将 consumer 加入到消费者集群中
-		ConsumerClustersContext.addClusters(msg.getClusterId(), channel);
+		//
+		if(msg.getExchange() == null){
+			//没有 exchange， 所以直接使用 队列名
+			ConsumerContext.addQueue(msg, channel);
+		}else{
+			//将 consumer 加入到消费者集群中
+			ConsumerContext.addClusters(msg, channel);
+		}
 		
 	}
 
